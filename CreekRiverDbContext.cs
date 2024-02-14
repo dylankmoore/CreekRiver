@@ -20,7 +20,8 @@ public class CreekRiverDbContext : DbContext
         modelBuilder.Entity<CampsiteType>().HasData(new CampsiteType[]
         {
         new CampsiteType 
-        {   Id = 1, 
+        {   
+            Id = 1, 
             CampsiteTypeName = "Tent", 
             FeePerNight = 15.99M, 
             MaxReservationDays = 7},
@@ -78,11 +79,11 @@ public class CreekRiverDbContext : DbContext
              Nickname = "Mossy Hollow", 
              ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"},
             new Campsite 
-            {
-                Id = 6, 
-                CampsiteTypeId = 6, 
-                Nickname = "Pinecone Pathway", 
-                ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"}
+         {
+              Id = 6, 
+              CampsiteTypeId = 6, 
+              Nickname = "Pinecone Pathway", 
+              ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"}
          });
 
         //seed data with user profiles
