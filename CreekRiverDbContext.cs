@@ -19,14 +19,103 @@ public class CreekRiverDbContext : DbContext
         // seed data with campsite types
         modelBuilder.Entity<CampsiteType>().HasData(new CampsiteType[]
         {
-        new CampsiteType {Id = 1, CampsiteTypeName = "Tent", FeePerNight = 15.99M, MaxReservationDays = 7},
-        new CampsiteType {Id = 2, CampsiteTypeName = "RV", FeePerNight = 26.50M, MaxReservationDays = 14},
-        new CampsiteType {Id = 3, CampsiteTypeName = "Primitive", FeePerNight = 10.00M, MaxReservationDays = 3},
-        new CampsiteType {Id = 4, CampsiteTypeName = "Hammock", FeePerNight = 12M, MaxReservationDays = 7}
+        new CampsiteType 
+        {   Id = 1, 
+            CampsiteTypeName = "Tent", 
+            FeePerNight = 15.99M, 
+            MaxReservationDays = 7},
+        new CampsiteType 
+        {
+            Id = 2, 
+            CampsiteTypeName = "RV", 
+            FeePerNight = 26.50M, 
+            MaxReservationDays = 14},
+        new CampsiteType 
+        {
+            Id = 3, 
+            CampsiteTypeName = "Primitive", 
+            FeePerNight = 10.00M, 
+            MaxReservationDays = 3},
+        new CampsiteType
+        {
+            Id = 4, 
+            CampsiteTypeName = "Hammock", 
+            FeePerNight = 12M, 
+            MaxReservationDays = 7}
         });
+
+        //seed data with campsites
         modelBuilder.Entity<Campsite>().HasData(new Campsite[]
-{
-    new Campsite {Id = 1, CampsiteTypeId = 1, Nickname = "Barred Owl", ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"},
-});
+         {
+         new Campsite 
+         {
+             Id = 1, 
+             CampsiteTypeId = 1, 
+             Nickname = "Barred Owl", 
+             ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"},
+         new Campsite 
+         {
+             Id = 2, 
+             CampsiteTypeId = 2, 
+             Nickname = "Birchwood Trails", 
+             ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"},
+         new Campsite 
+         {
+             Id = 3, 
+             CampsiteTypeId = 3, 
+             Nickname = "Whispering Brook", 
+             ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"},
+         new Campsite 
+         {
+             Id = 4, 
+             CampsiteTypeId = 4, 
+             Nickname = "Starlight Trails", 
+             ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"},
+         new Campsite 
+         {
+             Id = 5, 
+             CampsiteTypeId = 5, 
+             Nickname = "Mossy Hollow", 
+             ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"},
+            new Campsite 
+            {
+                Id = 6, 
+                CampsiteTypeId = 6, 
+                Nickname = "Pinecone Pathway", 
+                ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"}
+         });
+
+        //seed data with user profiles
+        modelBuilder.Entity<UserProfile>().HasData(new UserProfile[]
+        {
+            new UserProfile
+            {
+                Id = 1,
+                FirstName = "Sydney",
+                LastName = "Prescott",
+                Email = "sydney@scream.com",
+            },
+
+            new UserProfile
+            {
+              Id = 2,
+              FirstName = "Buffy",
+              LastName = "Summers",
+              Email = "thechosenone@slayers.com",
+            }
+        });
+
+        //seed data with reservations
+        modelBuilder.Entity<Reservation>().HasData(new Reservation[]
+        {
+           new Reservation
+        {
+               Id = 1,
+               CampsiteId =2,
+               UserProfileId = 1,
+               CheckinDate = DateTime.Today, 
+               CheckoutDate = DateTime.Today.AddDays(2) }
+
+        });
     }
 }

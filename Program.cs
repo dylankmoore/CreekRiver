@@ -118,5 +118,19 @@ app.MapPost("/api/reservations", (CreekRiverDbContext db, Reservation newRes) =>
     }
 });
 
+//DELETE RESERVATIONS
+app.MapDelete("/api/reservations/{id}", (CreekRiverDbContext db, int id) =>
+    {
+        Reservation reservation = db.Reservations.SingleOrDefault(r => r.Id == id);
+        if (reservation == null) { return Results.NotFound();
+        }
+        db.Reservations.Remove(reservation);
+        db.SaveChanges();
+
+        return Results.Ok("Reservation has been deleted!");
+}); 
+
+//
+
 app.Run();
 
